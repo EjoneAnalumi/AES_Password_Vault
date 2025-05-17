@@ -7,7 +7,7 @@ public class User {
     private String salt;
     private String encryptionKey;
 
-    // Konstruktorë, getters dhe setters
+
     public User() {}
 
     public User(String username, String encryptedMasterPassword, String salt, String encryptionKey) {
@@ -17,7 +17,7 @@ public class User {
         this.encryptionKey = encryptionKey;
     }
 
-    // Getters dhe Setters
+
     public int getId() { return id; }
     public void setId(int id) { this.id = id; }
     public String getUsername() { return username; }
