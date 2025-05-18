@@ -16,10 +16,10 @@ public class DatabaseManager {
             if (!Files.exists(Paths.get(PASSWORD_FILE))) {
                 Files.createFile(Paths.get(PASSWORD_FILE));
             }
-            System.out.println("File database initialized.");
+            System.out.println("Databaza e file-ve u inicializua");
         } catch (IOException e) {
             e.printStackTrace();
-            throw new RuntimeException("Failed to initialize file database", e);
+            throw new RuntimeException("Deshtoi inicializimi i databazes se file-ve", e);
         }
     }
 

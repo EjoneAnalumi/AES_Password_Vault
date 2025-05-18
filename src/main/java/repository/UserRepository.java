@@ -7,7 +7,7 @@ import model.User;
 public class UserRepository {
 
     public UserRepository() {
-        // file-based storage - nuk duhet objekt per connection
+
     }
 
     public User getUser(String username) {
