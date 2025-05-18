@@ -7,7 +7,7 @@ public class PasswordEntry {
     private String username;
     private String encryptedPassword;
     private String iv;
-    private String strength; // Now only stores password strength
+    private String strength;
 
     public PasswordEntry() {}
 
@@ -21,7 +21,7 @@ public class PasswordEntry {
         this.strength = strength;
     }
 
-    // Getters and Setters
+
     public int getId() { return id; }
     public void setId(int id) { this.id = id; }
     public int getUserId() { return userId; }
