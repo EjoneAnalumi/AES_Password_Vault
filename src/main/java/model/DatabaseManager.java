@@ -68,13 +68,13 @@ public class DatabaseManager {
             while ((line = reader.readLine()) != null) {
                 String[] p = line.split(",", -1);
                 if (p[1].equals(username)) {
-                    User u = new User();
-                    u.setId(Integer.parseInt(p[0]));
-                    u.setUsername(p[1]);
-                    u.setEncryptedMasterPassword(p[2]);
-                    u.setSalt(p[3]);
-                    u.setEncryptionKey(p[4]);
-                    return u;
+                    User user = new User();
+                    user.setId(Integer.parseInt(p[0]));
+                    user.setUsername(p[1]);
+                    user.setEncryptedMasterPassword(p[2]);
+                    user.setSalt(p[3]);
+                    user.setEncryptionKey(p[4]);
+                    return user;
                 }
             }
         } catch (IOException e) {
@@ -158,15 +158,5 @@ public class DatabaseManager {
             return false;
         }
     }
-    public static int getTotalUserCount() {
-        int count = 0;
-        try (BufferedReader reader = Files.newBufferedReader(Paths.get(USER_FILE))) {
-            while (reader.readLine() != null) {
-                count++;
-            }
-        } catch (IOException e) {
-            e.printStackTrace();
-        }
-        return count;
-    }
+
 }
