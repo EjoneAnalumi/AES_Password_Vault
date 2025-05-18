@@ -74,6 +74,4 @@ Aplikacioni është testuar duke:
 
 Projekti është realizuar me sukses duke siguruar ruajtje të enkriptuar të fjalëkalimeve me AES, gjenerim të fjalëkalimeve të forta dhe organizim të qartë të kredencialeve për përdorues të ndryshëm.
 
----
 
-> Ky projekt është zhvilluar si pjesë e lëndës **Data Security**.
