@@ -3,7 +3,16 @@ module com.example.demo {
     requires javafx.fxml;
     requires java.sql;
 
+    
+    opens app to javafx.graphics;
+    opens com.example.demo to javafx.graphics;
+    opens controller to javafx.fxml;
+    opens dto to javafx.base;
+    opens model to javafx.base;
 
-    opens com.example.demo to javafx.fxml;
-    exports com.example.demo;
+
+    exports app;
+    exports controller;
+    exports dto;
+    exports model;
 }
