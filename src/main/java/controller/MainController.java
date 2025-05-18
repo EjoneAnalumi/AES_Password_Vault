@@ -43,12 +43,10 @@ public class MainController {
         this.currentUserId = loginDTO.getUserId();
         this.encryptionKey = AESEncryption.stringToKey(loginDTO.getEncryptionKey());
 
-        // Initialize table columns
         websiteColumn.setCellValueFactory(new PropertyValueFactory<>("website"));
         usernameColumn.setCellValueFactory(new PropertyValueFactory<>("username"));
         strengthColumn.setCellValueFactory(new PropertyValueFactory<>("strength"));
 
-        // Load password data
         loadPasswordData();
     }
 
