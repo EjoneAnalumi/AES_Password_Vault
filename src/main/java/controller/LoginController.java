@@ -32,7 +32,7 @@ public class LoginController {
 
     @FXML
     private void handleLogin() {
-        createDefaultUser();
+//        createDefaultUser();
         String username = usernameField.getText();
         String password = passwordField.getText();
 

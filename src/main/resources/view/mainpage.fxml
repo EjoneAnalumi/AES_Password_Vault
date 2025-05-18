@@ -113,7 +113,7 @@
                                  <columns>
                                      <TableColumn fx:id="websiteColumn" prefWidth="260.0" text="Website" />
                                      <TableColumn fx:id="usernameColumn" prefWidth="260.0" text="Username" />
-                                     <TableColumn fx:id="categoryColumn" prefWidth="260.0" text="Category" />
+                                     <TableColumn fx:id="strengthColumn" prefWidth="260.0" text="Strength" />
                                  </columns>
                              </TableView>
                              <HBox alignment="CENTER" spacing="10.0">

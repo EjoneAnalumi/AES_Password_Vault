@@ -2,25 +2,30 @@ package model;
 
 public class PasswordEntry {
     private int id;
+    private int userId;
     private String website;
     private String username;
     private String encryptedPassword;
     private String iv;
-    private String strength;
+    private String strength; // Now only stores password strength
 
     public PasswordEntry() {}
 
-    public PasswordEntry(String website, String username,
+    public PasswordEntry(int userId, String website, String username,
                          String encryptedPassword, String iv, String strength) {
+        this.userId = userId;
         this.website = website;
         this.username = username;
         this.encryptedPassword = encryptedPassword;
         this.iv = iv;
         this.strength = strength;
     }
-    
+
+    // Getters and Setters
     public int getId() { return id; }
     public void setId(int id) { this.id = id; }
+    public int getUserId() { return userId; }
+    public void setUserId(int userId) { this.userId = userId; }
     public String getWebsite() { return website; }
     public void setWebsite(String website) { this.website = website; }
     public String getUsername() { return username; }
