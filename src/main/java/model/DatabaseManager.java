@@ -158,4 +158,15 @@ public class DatabaseManager {
             return false;
         }
     }
+    public static int getTotalUserCount() {
+        int count = 0;
+        try (BufferedReader reader = Files.newBufferedReader(Paths.get(USER_FILE))) {
+            while (reader.readLine() != null) {
+                count++;
+            }
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+        return count;
+    }
 }
