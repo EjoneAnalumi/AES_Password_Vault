@@ -145,7 +145,7 @@ public class DatabaseManager {
         return Files.exists(Paths.get(USER_FILE)) && Files.exists(Paths.get(PASSWORD_FILE));
     }
 
-    
+
     private static boolean appendLine(String filename, String line) {
         try (BufferedWriter writer = Files.newBufferedWriter(
                 Paths.get(filename),
