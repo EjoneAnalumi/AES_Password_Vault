@@ -10,6 +10,8 @@ import dto.PasswordEntryDTO;
 import javafx.scene.input.ClipboardContent;
 import javafx.scene.input.Clipboard;
 import model.*;
+import utils.PasswordStrengthChecker;
+
 import javax.crypto.SecretKey;
 import javax.crypto.spec.IvParameterSpec;
 import java.sql.SQLException;
@@ -95,15 +97,19 @@ public class MainController {
 
     @FXML
     private void handleSavePassword() {
-        String website = websiteField.getText();
-        String username = usernameField.getText();
-        String password = passwordField.getText();
-        String strength = getSelectedStrength().toString();
+        String website = websiteField.getText().trim();
+        String username = usernameField.getText().trim();
+        String password = passwordField.getText().trim();
 
         if (website.isEmpty() || username.isEmpty() || password.isEmpty()) {
             statusLabel.setText("Please fill all fields!");
             return;
         }
+
+        // Calculate actual password strength instead of defaulting
+        PasswordStrengthChecker.Strength calculatedStrength =
+                PasswordStrengthChecker.calculateStrength(password);
+        String computedStrength = calculatedStrength.name();
 
         try {
             IvParameterSpec iv = AESEncryption.generateIv();
@@ -111,7 +117,13 @@ public class MainController {
             String ivString = Base64.getEncoder().encodeToString(iv.getIV());
 
             PasswordEntry newEntry = new PasswordEntry(
-                    currentUserId, website, username, encryptedPassword, ivString, strength);
+                    currentUserId,
+                    website,
+                    username,
+                    encryptedPassword,
+                    ivString,
+                    computedStrength
+            );
 
             DatabaseManager.addPasswordEntry(currentUserId, newEntry);
             loadPasswordData();
@@ -120,7 +132,7 @@ public class MainController {
             usernameField.clear();
             passwordField.clear();
 
-            statusLabel.setText("Password saved successfully!");
+            statusLabel.setText("Password saved successfully as " + computedStrength + "!");
         } catch (Exception e) {
             statusLabel.setText("Error saving password!");
             e.printStackTrace();
